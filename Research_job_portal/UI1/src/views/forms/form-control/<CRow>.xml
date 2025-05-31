@@ -1,0 +1,36 @@
+<CRow>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardBody>
+            <CTabs activeItemKey={2}>
+              <CTabList variant="pills">
+                <CTab aria-controls="home-tab-pane" itemKey={1}>Add New Job</CTab>
+                <CTab aria-controls="manageJob-tab-pane" itemKey={2}>Manage Jobs</CTab>
+                <CTab aria-controls="student-tab-pane" itemKey={3}>Hire Student</CTab>
+              </CTabList>
+              <CTabContent>
+                <CTabPanel className="p-3" aria-labelledby="home-tab-pane" itemKey={1}>
+                  <CForm onSubmit={handleSubmit}>
+                    <FormGroup label="Job Title" id="jobTitle" type="text" placeholder="Enter Job title" value={formData.jobTitle} handleChange={handleChange} error={errors.jobTitle} />
+                    <FormGroup label="Job Description" id="jobDescription" type="textarea" rows={4} placeholder="Enter Job details" value={formData.jobDescription} handleChange={handleChange} error={errors.jobDescription} />
+                    <FormGroup label="Professor Name" id="professorName" type="text" placeholder="Enter professor's name" value={formData.professorName} handleChange={handleChange} error={errors.professorName} />
+                    <FormGroup label="Eligibility Criteria" id="eligibility" type="select" options={["Bachelor Degree", "Masters"]} value={formData.eligibility} handleChange={handleChange} error={errors.eligibility} />
+                    <FormGroup label="Application Deadline" id="applicationDeadline" type="date" value={formData.applicationDeadline} handleChange={handleChange} error={errors.applicationDeadline} />
+                    <FormGroup label="Skill Set" id="skillset" type="textarea" rows={4} placeholder="Required SkillSet" value={formData.skillset} handleChange={handleChange} error={errors.skillset} />
+                    <FormGroup label="Status" id="status" type="select" options={["Open", "In Progress", "Closed"]} value={formData.status} handleChange={handleChange} error={errors.status} />
+                    <CButton color="primary" type="submit">Add New Position</CButton>
+                  </CForm>
+                </CTabPanel>
+                <CTabPanel className="p-3" aria-labelledby="manageJob-tab-pane" itemKey={2}>
+                  <h5>Manage Job Details</h5>
+                  <EditForm />
+                </CTabPanel>
+                <CTabPanel className="p-3" aria-labelledby="student-tab-pane" itemKey={3}>
+                  Student Hire Details
+                </CTabPanel>
+              </CTabContent>
+            </CTabs>
+          </CCardBody>
+        </CCard>
+      </CCol>
+    </CRow>
